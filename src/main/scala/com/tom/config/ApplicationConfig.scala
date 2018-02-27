@@ -9,12 +9,14 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 /**
   * Created by Tom on 22-Feb-18.
   */
-class AppResourceConfig() extends WebApplicationInitializer {
+
+class ApplicationConfig extends WebApplicationInitializer {
 
   override def onStartup(servletContext: ServletContext): Unit = {
     val ctx = new AnnotationConfigWebApplicationContext()
 
     servletContext.addListener(new ContextLoaderListener(ctx))
     servletContext.setInitParameter( "contextConfigLocation", "com.tom")
+//
   }
 }

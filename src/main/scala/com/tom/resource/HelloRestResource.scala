@@ -4,22 +4,19 @@ import javax.annotation.Resource
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.{GET, Path, Produces}
 
-import com.tom.service.HelloService
-import org.springframework.beans.factory.annotation.Autowired
+import com.tom.base.BaseResource
 
 /**
   * Created by Tom on 22-Feb-18.
   */
 @Path("/hello")
 @Resource
-class HelloRestResource {
-
-  @Autowired
-  var helloService: HelloService = _
+class HelloRestResource extends BaseResource {
 
   @GET
   @Produces(Array(MediaType.TEXT_PLAIN))
   def get(): String = {
-    helloService.getHello
+    println(systemConfig.baseProperties.hi)
+    systemConfig.helloService.getHello
   }
 }

@@ -10,5 +10,4 @@ import org.glassfish.jersey.server.ResourceConfig
 @ApplicationPath("/resources")
 class RestConfig extends ResourceConfig {
   packages("com.tom.resource")
-
 }
